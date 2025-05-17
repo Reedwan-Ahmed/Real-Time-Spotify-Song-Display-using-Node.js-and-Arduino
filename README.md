@@ -1,5 +1,5 @@
 # Real-Time-Spotify-Song-Display-using-Node.js-and-Arduino
-A project that fetches your currently playing Spotify track using the Web API and shows it on a 16x2 I2C LCD connected to an Arduino. This is one of my original projects that I started from scratch to see my potential, just after completing my EEE 3209 MCU course. This is more like my expertise in AI prompt engineering and Arduino, with little basic knowledge of JS.
+A project that fetches your currently playing Spotify track using the Web API and shows it on a 16x2 I2C LCD connected to an Arduino. This is one of my original projects that I started from scratch to see my potential, just after completing my EEE 3209 MCU course. This is more like my expertise in AI prompt engineering and Arduino, with little basic knowledge of JS. Watch this in "RAW" mode for clear instructions.
 
 Hardware Requirements:
 ---------------------
