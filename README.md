@@ -85,3 +85,26 @@ You’ll receive a response like this:
   "scope": "user-read-playback-state user-read-currently-playing"
 }
 Save your Access token and Refresh token — you’ll use this to get new access tokens without re-authorizing.
+
+#Note that I have uploaded 3 JS codes and 1 Arduino IDE code in the main branch that you will need next. 1.server.js 2.newAceessToken.js 3.LDC.js 4.Arduino IDE code#
+
+Step 4: Use Your Refresh Token to Get a New Access Token Automatically
+----------------------------------------------------------------------
+Now that you have your refresh token, you can set up a script that will automatically fetch a new access token whenever the current one expires (which usually happens after 1 hour).
+We will use the code in newAceessToken.js for this purpose.
+
+1. What this file does:
+It stores your refresh_token, client_id, and client_secret.
+It defines a function refreshAccessToken() that requests a new access token from Spotify using your refresh token.
+If your access token has expired, it refreshes it automatically and retries the API request to get the currently playing song.
+2. How to run this:
+Make sure you’ve installed the required dependency:
+1. npm install axios
+2. node newAceessToken.js
+
+This will do two things:
+Try to get the currently playing song from your Spotify account.
+If the token has expired, it will refresh the token and try again.
+You’ll see either the track info printed in the terminal or an error if nothing is playing.
+
+Step 5: 
