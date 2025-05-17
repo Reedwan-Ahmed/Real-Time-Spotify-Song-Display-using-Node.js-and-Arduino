@@ -44,7 +44,7 @@ Note down the Client ID and Client Secret.
 2. Set the Redirect URI:
 In your app settings, add http://localhost:8888/callback as a redirect URI.
 
-Get a Refresh Token:
+Step 3: Get a Refresh Token:
 --------------------
 Step 1: Get the Authorization Code (using browser)
 1.Construct the following URL in your browser:
