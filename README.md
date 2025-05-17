@@ -63,7 +63,7 @@ Value: Basic <base64(client_id:client_secret)>
 
 To get the base64 string:
 If your client ID is abc and secret is 123,
-then base64("abc:123") = YWJjOjEyMw==
+then base64("abc:123")=YWJjOjEyMw==
 
 Key: Content-Type
 Value: application/x-www-form-urlencoded
