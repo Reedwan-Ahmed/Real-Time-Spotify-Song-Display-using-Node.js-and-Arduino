@@ -192,6 +192,7 @@ After 2 seconds, it will switch to show "Album:" on the first line and the album
 This display will update automatically every 5 seconds with the latest playing info.
 
 #It took me a lot of effort to execute my project. I needed to troubleshoot and fix errors many times until it became perfect. There were many difficulties, yet I tried to cover up the core things that I mainly learned.
+
 Here is a Video of my final project that worked perfectly on my YouTube channel: 
 -------------------------------------------------------------------------------
 https://youtu.be/FjlkE5RW_3I
