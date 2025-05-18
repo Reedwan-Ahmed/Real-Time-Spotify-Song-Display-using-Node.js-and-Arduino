@@ -123,8 +123,8 @@ Node.js installed on your machine (https://nodejs.org/)
 A terminal (Command Prompt, Terminal, or PowerShell)
 Code editor (like VS Code)
 
-Instructions:
-1.Create a new folder for your project (if you haven’t yet), e.g.:
+3. Instructions:
+1. Create a new folder for your project (if you haven’t yet), e.g.:
 mkdir spotify-lcd-project
 cd spotify-lcd-project
 2. Initialize a Node.js project:
