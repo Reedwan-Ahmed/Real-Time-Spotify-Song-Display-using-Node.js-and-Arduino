@@ -99,6 +99,7 @@ You can use an online base64 encoder or run this command in a terminal: echo -n 
 | grant_type   | authorization_code               |
 | code         | YOUR_AUTHORIZATION_CODE          |
 | redirect_uri | http://localhost:8888/callback   |
+
 Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
 6. Click Send.
 
