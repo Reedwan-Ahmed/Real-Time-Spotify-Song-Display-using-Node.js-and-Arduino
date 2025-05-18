@@ -64,35 +64,46 @@ Step 3: Get a Refresh Token: ( There are 2 ways to get this. Either use the Post
 --------------------
 Postman method:
 ---------------
-Step 1: Get the Authorization Code (using browser)
-1.Construct the following URL in your browser:
+Step 1: Get the Authorization Code using your browser
+1. Open your web browser.
+2. Copy and paste this URL into the address bar, but replace the parts in ALL CAPS with your own info:
 https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=YOUR_REDIRECT_URI&scope=user-read-playback-state%20user-read-currently-playing
-2.Log in and allow permissions.
-3.You’ll be redirected to something like: http://localhost:8888/callback?code=AQCyN8VQ...<your_auth_code>
-Copy the code= part — this is your Authorization Code.
+-Replace YOUR_CLIENT_ID with your Spotify app’s Client ID.
+-Replace YOUR_REDIRECT_URI with the Redirect URI you set in your Spotify app (usually http://localhost:8888/callback).
+3. Press Enter to open the link.
+4. You will be asked to log in to your Spotify account and approve permissions. Do that.
+5. After you approve, the browser will redirect to a URL like this: http://localhost:8888/callback?code=AUTHORIZATION_CODE_HERE
+6. Copy the part after code= — this is your Authorization Code. Save it somewhere, you’ll need it in the next step.
+   
+Step 2: Exchange Authorization Code for Refresh Token using Postman
+1. Open Postman (if you don’t have it, download and install it from https://www.postman.com/).
+2. Create a new POST request.
+3. Set the request URL to: https://accounts.spotify.com/api/token
+4. Go to the Headers tab and add these two headers:
 
-Step 2: Exchange Authorization Code for Refresh Token (in Postman)
-1.Open Postman.
-2.Create a POST request to: https://accounts.spotify.com/api/token
-3. In the Headers tab:
-Key: Authorization
-Value: Basic <base64(client_id:client_secret)>
+### Headers (for Postman)
 
-To get the base64 string:
-If your client ID is abc and secret is 123,
-then base64("abc:123")=YWJjOjEyMw==
+| Key           | Value                                  |
+|----------------|----------------------------------------|
+| Authorization | Basic YOUR_BASE64_ENCODED_CREDENTIALS  |
+| Content-Type  | application/x-www-form-urlencoded      |
 
-Key: Content-Type
-Value: application/x-www-form-urlencoded
+To get YOUR_BASE64_ENCODED_CREDENTIALS, you must base64 encode your client_id and client_secret joined with a colon :.
+For example, if your client ID is abc and secret is 123, encode abc:123 to base64, which results in YWJjOjEyMw==.
+You can use an online base64 encoder or run this command in a terminal: echo -n 'abc:123' | base64
+5. Go to the Body tab, select x-www-form-urlencoded as the type, and add these key-value pairs:
+### Body (x-www-form-urlencoded)
 
-4. In the Body tab (form-data or x-www-form-urlencoded), enter:
-grant_type: authorization_code
-code: <your_authorization_code>
-redirect_uri: http://localhost:8888/callback
-5. Send the request.
+| Key          | Value                            |
+|--------------|----------------------------------|
+| grant_type   | authorization_code               |
+| code         | YOUR_AUTHORIZATION_CODE          |
+| redirect_uri | http://localhost:8888/callback   |
+Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
+6. Click Send.
 
-Step 3: Copy Your Tokens:
-You’ll receive a response like this:
+Step 3: Save Your Tokens
+After sending the request, you will get a response like this:
 {
   "access_token": "BQD...",
   "token_type": "Bearer",
@@ -100,7 +111,8 @@ You’ll receive a response like this:
   "refresh_token": "AQA...",
   "scope": "user-read-playback-state user-read-currently-playing"
 }
-Save your Access token and Refresh token — you’ll use this to get new access tokens without re-authorizing.
+Copy and save both access_token and refresh_token somewhere safe.
+You will use the refresh token later to get new access tokens without needing to log in again.
 
 Server.js method to get access token:
 ------------------------------------
