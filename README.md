@@ -23,8 +23,7 @@ Install the following libraries:
 For Arduino: LiquidCrystal_I2C library.
 For Node.js: axios, serialport
 
-#Note that I have uploaded 3 JS codes and 1 Arduino IDE code in the main branch that you will need next: 1.server.js 2.newAceessToken.js 3.LDC.js 4.Arduino IDE code
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Note that I have uploaded 3 JS codes and 1 Arduino IDE code in the main branch that you will need next: 1.server.js 2.newAceessToken.js 3.LDC.js 4.Arduino IDE code
 
 Step 1: Hardware Setup
 -----------------------
@@ -61,10 +60,10 @@ client_secret
 redirect_uri
 
 Step 3: Get a Refresh Token: ( There are 2 ways to get this. Either use the Postman method or use the server.js method )
---------------------
-Postman method:
----------------
-Step 1: Get the Authorization Code using your browser
+-----------------------------------------------------------------------------------------------------------------------
+Postman method to Get a Refresh Token:
+-------------------------------------
+## Step 1: Get the Authorization Code using your browser
 1. Open your web browser.
 2. Copy and paste this URL into the address bar, but replace the parts in ALL CAPS with your own info:
 https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=YOUR_REDIRECT_URI&scope=user-read-playback-state%20user-read-currently-playing
@@ -75,7 +74,7 @@ https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=co
 5. After you approve, the browser will redirect to a URL like this: http://localhost:8888/callback?code=AUTHORIZATION_CODE_HERE
 6. Copy the part after code= — this is your Authorization Code. Save it somewhere, you’ll need it in the next step.
    
-Step 2: Exchange Authorization Code for Refresh Token using Postman
+## Step 2: Exchange Authorization Code for Refresh Token using Postman
 1. Open Postman (if you don’t have it, download and install it from https://www.postman.com/).
 2. Create a new POST request.
 3. Set the request URL to: https://accounts.spotify.com/api/token
@@ -103,7 +102,7 @@ You can use an online base64 encoder or run this command in a terminal: echo -n 
 Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
 6. Click Send.
 
-Step 3: Save Your Tokens
+## Step 3: Save Your Tokens
 1. After sending the request, you will get a response like this:
 {
   "access_token": "BQD...",
