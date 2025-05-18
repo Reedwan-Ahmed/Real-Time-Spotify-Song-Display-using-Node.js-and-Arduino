@@ -103,7 +103,7 @@ Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
 6. Click Send.
 
 Step 3: Save Your Tokens
-After sending the request, you will get a response like this:
+1. After sending the request, you will get a response like this:
 {
   "access_token": "BQD...",
   "token_type": "Bearer",
@@ -111,14 +111,13 @@ After sending the request, you will get a response like this:
   "refresh_token": "AQA...",
   "scope": "user-read-playback-state user-read-currently-playing"
 }
-Copy and save both access_token and refresh_token somewhere safe.
-You will use the refresh token later to get new access tokens without needing to log in again.
+2. Copy and save both access_token and refresh_token somewhere safe. You will use the refresh token later to get new access tokens without needing to log in again.
 
 Server.js method to get access token:
 ------------------------------------
-You will run a Node.js server that listens for Spotify’s redirect and grabs the authorization code. This code is the key to getting your long-term access + refresh token.
+1. You will run a Node.js server that listens for Spotify’s redirect and grabs the authorization code. This code is the key to getting your long-term access + refresh token.
 
-Tools Needed:
+2. Tools Needed:
 Node.js installed on your machine (https://nodejs.org/)
 A terminal (Command Prompt, Terminal, or PowerShell)
 Code editor (like VS Code)
