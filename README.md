@@ -167,7 +167,7 @@ Connect your LCD display to your Arduino via I2C (check your wiring matches LCD 
 Connect your Arduino to your computer via USB.
 2. Upload the Arduino code:
 Open Arduino IDE.
-Copy the Arduino IDE code you shared into a new sketch.
+Copy the Arduino IDE code I shared in the main branch.
 Select the correct COM port and board.
 Upload the code to your Arduino.
 3. Set the correct COM port in LDC.js:
@@ -184,9 +184,12 @@ const clientSecret = 'YOUR_CLIENT_SECRET';
 let accessToken = 'YOUR_INITIAL_ACCESS_TOKEN';
 The initial access token should be a valid one you got from newAccessToken.js or server.js.
 6.Run LDC.js:
-node LDC.js (in command window)
+node LDC.js
 
 What you should see:
 The LCD screen connected to your Arduino will display the current song name on the first line and the artist name on the second line.
 After 2 seconds, it will switch to show "Album:" on the first line and the album name on the second.
 This display will update automatically every 5 seconds with the latest playing info.
+
+#It took me a lot of effort to execute my project. There were many difficulties, yet I tried to cover up the core things that I mainly learned.
+Here is a Video of my final project that worked perfectly in my youtube channel: https://youtu.be/FjlkE5RW_3I
