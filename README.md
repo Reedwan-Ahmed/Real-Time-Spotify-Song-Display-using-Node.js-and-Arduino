@@ -115,7 +115,7 @@ Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
 }
 2. Copy and save both access_token and refresh_token somewhere safe. You will use the refresh token later to get new access tokens without needing to log in again.
 
-✅ Option B: Using [`server.js`](./server.js)
+Option B: Using [`server.js`](./server.js)
 
 ------------------------------------
 1. You will run a Node.js server that listens for Spotify’s redirect and grabs the authorization code. This code is the key to getting your long-term access + refresh token.
@@ -153,7 +153,8 @@ Access Token
 Refresh Token
 9. Copy and save both tokens safely — especially the refresh token, which you’ll need to regenerate access tokens later.
 
-Step 3: Automatically Refresh Your Access Token Using "newAccessToken.js"
+**Step 3: Automatically Refresh Your Access Token Using [View newAccessToken.js](./newAccessToken.js)**
+
 -----------------------------------------------------------------------
 Once you've obtained your refresh token (from Postman or via running server.js and visiting the /callback URL), you don’t need to manually request an access token again. You can programmatically refresh it using the newAccessToken.js file since each token lasts for only 1 hour.
 1. Open your code editor and locate the file named: newAccessToken.js
@@ -165,7 +166,9 @@ Replace 'YOUR_REFRESH_TOKEN_HERE' with your actual refresh token (from Step 2 or
 5.Run the script: node newAccessToken.js
 You now have a program that can generate a fresh token and access Spotify's "currently playing" data automatically.
 
-Step 4: Display Spotify Track Info on Your LCD Using LDC.js and Arduino
+**Step 4: Display Spotify Track Info on Your LCD Using [LDC.js](./LDC.js)
+and Arduino**
+
 -----------------------------------------------------------------------
 1. Prepare your Arduino hardware:
 Connect your LCD display to your Arduino via I2C (check your wiring matches LCD address 0x27).
@@ -196,6 +199,7 @@ The LCD screen connected to your Arduino will display the current song name on t
 After 2 seconds, it will switch to show "Album:" on the first line and the album name on the second.
 This display will update automatically every 5 seconds with the latest playing info.
 
+![thumb](https://github.com/user-attachments/assets/74b0a3ce-6b7e-41f8-8721-f00215da0039)
 #It took me a lot of effort to execute my project. I needed to troubleshoot and fix errors many times until it became perfect. There were many difficulties, yet I tried to cover up the core things that I mainly learned.
 
 Here is a Video of my final project that worked perfectly on my YouTube channel: 
