@@ -114,10 +114,9 @@ Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
   "scope": "user-read-playback-state user-read-currently-playing"
 }
 2. Copy and save both access_token and refresh_token somewhere safe. You will use the refresh token later to get new access tokens without needing to log in again.
-
+------
 Option B: Using [`server.js`](./server.js)
 
-------------------------------------
 1. You will run a Node.js server that listens for Spotify’s redirect and grabs the authorization code. This code is the key to getting your long-term access + refresh token.
 Edit the file and replace:
 const client_id = 'YOUR_CLIENT_ID';
@@ -152,10 +151,10 @@ You will be asked to log into Spotify and authorize your app. Once done, Spotify
 Access Token
 Refresh Token
 9. Copy and save both tokens safely — especially the refresh token, which you’ll need to regenerate access tokens later.
+--------
 
 **Step 3: Automatically Refresh Your Access Token Using [View newAccessToken.js](./newAccessToken.js)**
 
------------------------------------------------------------------------
 Once you've obtained your refresh token (from Postman or via running server.js and visiting the /callback URL), you don’t need to manually request an access token again. You can programmatically refresh it using the newAccessToken.js file since each token lasts for only 1 hour.
 1. Open your code editor and locate the file named: newAccessToken.js
 2. Open a terminal in the same directory.
@@ -166,10 +165,10 @@ Replace 'YOUR_REFRESH_TOKEN_HERE' with your actual refresh token (from Step 2 or
 5.Run the script: node newAccessToken.js
 You now have a program that can generate a fresh token and access Spotify's "currently playing" data automatically.
 
+-----------
 **Step 4: Display Spotify Track Info on Your LCD Using [LDC.js](./LDC.js)
 and Arduino**
 
------------------------------------------------------------------------
 1. Prepare your Arduino hardware:
 Connect your LCD display to your Arduino via I2C (check your wiring matches LCD address 0x27).
 Connect your Arduino to your computer via USB.
