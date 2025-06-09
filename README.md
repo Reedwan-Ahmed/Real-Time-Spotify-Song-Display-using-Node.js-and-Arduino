@@ -1,63 +1,65 @@
 # Real-Time-Spotify-Song-Display-using-Node.js-and-Arduino
-A project that fetches your currently playing Spotify track using the Web API and shows it on a 16x2 I2C LCD connected to an Arduino. This is one of my original projects that I started from scratch to see my potential, just after completing my EEE 3209 MCU course. This is more like my expertise in AI prompt engineering and Arduino, with little basic knowledge of JS. Watch this in "RAW" mode for clear instructions.
+A project that fetches your currently playing Spotify track using the Web API and shows it on a 16x2 I2C LCD connected to an Arduino. This is one of my original projects that I started completely from scratch, just after completing my EEE 3209 MCU course. 
+This was a test of my skills in Arduino, basic JavaScript, and AI prompt engineering.
+I solved many bugs and issues during development, and this final version works perfectly.
+**Watch it in action:** [YouTube Demo Video](https://youtu.be/FjlkE5RW_3I)
 
-Hardware Requirements:
----------------------
-1 x Arduino Uno
-1 x 16x2 I2C LCD Display
-1 x I2C Module for LCD (usually pre-attached)
-Wires
-USB cable for Arduino
-Computer (Windows 10/11)
+ 🧰 Hardware Requirements
 
-Software Requirements:
----------------------
-1. Arduino IDE
-Download and install the Arduino IDE from Arduino's official website.
-2. Node.js
-Download and install Node.js from Node.js official website. Ensure that NPM (Node Package Manager) is included.
-3. Spotify Developer Account
-Create a developer account at Spotify Developer Dashboard.
-4. Dependencies
-Install the following libraries:
-For Arduino: LiquidCrystal_I2C library.
-For Node.js: axios, serialport
+- 1 × Arduino Uno  
+- 1 × 16x2 I2C LCD Display  
+- 1 × I2C Module (usually pre-attached to the LCD)  
+- Jumper wires  
+- USB cable for Arduino  
+- Computer (Windows 10/11)
 
-## Note that I have uploaded 3 JS codes and 1 Arduino IDE code in the main branch that you will need next: 1.server.js 2.newAceessToken.js 3.LDC.js 4.Arduino IDE code
+💻 Software Requirements
 
-Step 1: Hardware Setup
------------------------
-Connect the LCD to Arduino Uno
+1. **Arduino IDE**  
+   Download from [Arduino Official Site](https://www.arduino.cc/en/software)
 
-Check LCD Address
-Different I2C modules may have different addresses (e.g., 0x27, 0x3F). To confirm the address:
-Upload an I2C scanner code to the Arduino (available online).
+2. **Node.js & NPM**  
+   Download from [Node.js Official Site](https://nodejs.org/)
 
-Step 2: Setting Up Spotify Developer App
-----------------------------------------
-1. Go to the Spotify Developer Dashboard:
-https://developer.spotify.com/dashboard
-2. Log in with your Spotify account (or sign up if you don’t have one).
-3. Click on “Create an App” (You might see it as “Create a Client” or “New App”).
-4. In the popup:
-App name: Choose anything (e.g., “Spotify LCD Project”)
-App description: Optional (e.g., “Arduino LCD display showing currently playing Spotify song”)
-Check both checkboxes to agree to the terms
-Click “Create”
-5. Once the app is created, click on your app to open its settings.
-6. Copy down the following (you’ll need these later):
-Client ID
-Client Secret
-7. Set a redirect URI:
-In your app dashboard, click “Edit Settings”
-Under “Redirect URIs” section, click “Add”
-Enter: http://localhost:8888/callback
-Click “Add” and then “Save”
+3. **Spotify Developer Account**  
+   Register at [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
 
-Summary: You now have a registered Spotify app and the three key pieces of data:
-client_id
-client_secret
-redirect_uri
+4. **Required Libraries:**
+   - **Arduino:** `LiquidCrystal_I2C` library  
+   - **Node.js:** `axios`, `serialport`, `@serialport/parser-readline`
+
+
+📁 Files Used in This Project
+
+| File | Description |
+|------|-------------|
+| [`ArduinoIDEcodeSpotify.ino`](./ArduinoIDEcodeSpotify.ino) | Arduino code to drive the LCD display |
+| [`LCD.js`](./LCD.js) | Displays current song info on the LCD via serial communication |
+| [`server.js`](./server.js) | Local OAuth handler for Spotify (gets access & refresh tokens) |
+| [`newAccessToken.js`](./newAccessToken.js) | Automatically refreshes your Spotify access token |
+| [`README.md`](./README.md) | This guide you're reading |
+
+## 🔌 Step 1: Hardware Setup
+
+1. Connect the **I2C LCD** to the Arduino Uno (VCC, GND, SDA, SCL).  
+2. Use an **I2C scanner sketch** to confirm your LCD address (`0x27`, `0x3F`, etc.).  
+   You can find I2C scanner codes [online](https://playground.arduino.cc/Main/I2cScanner/).
+
+---
+
+## 🎧 Step 2: Create Your Spotify Developer App
+
+1. Visit: [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)  
+2. Click **“Create an App”**
+   - App name: e.g., `Spotify LCD Project`
+   - Description: Optional  
+3. Save your:
+   - `Client ID`  
+   - `Client Secret`  
+4. Add a **Redirect URI**:  
+   - `http://localhost:8888/callback`
+
+---
 
 Step 3: Get a Refresh Token: ( There are 2 ways to get this. Either use the Postman method or use the server.js method )
 -----------------------------------------------------------------------------------------------------------------------
@@ -113,16 +115,20 @@ Replace YOUR_AUTHORIZATION_CODE with the code you copied from Step 1.
 }
 2. Copy and save both access_token and refresh_token somewhere safe. You will use the refresh token later to get new access tokens without needing to log in again.
 
-Server.js method to get access token:
+✅ Option B: Using [`server.js`](./server.js)
+
 ------------------------------------
 1. You will run a Node.js server that listens for Spotify’s redirect and grabs the authorization code. This code is the key to getting your long-term access + refresh token.
+Edit the file and replace:
+const client_id = 'YOUR_CLIENT_ID';
+const client_secret = 'YOUR_CLIENT_SECRET';
 
-2. Tools Needed:
+3. Tools Needed:
 Node.js installed on your machine (https://nodejs.org/)
 A terminal (Command Prompt, Terminal, or PowerShell)
 Code editor (like VS Code)
 
-3. Instructions:
+4. Instructions:
 1. Create a new folder for your project (if you haven’t yet), e.g.:
 mkdir spotify-lcd-project
 cd spotify-lcd-project
