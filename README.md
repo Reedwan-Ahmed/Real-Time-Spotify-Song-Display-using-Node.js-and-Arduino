@@ -2,7 +2,7 @@
 A project that fetches your currently playing Spotify track using the Web API and shows it on a 16x2 I2C LCD connected to an Arduino. This is one of my original projects that I started completely from scratch, just after completing my EEE 3209 MCU course. 
 This was a test of my skills in Arduino, and AI prompt engineering with Zero knowledge of JavaScript.
 I solved many bugs and issues during development, and this final version works perfectly.
-**Watch it in action:** [YouTube Demo Video](https://youtu.be/FjlkE5RW_3I)
+**Watch it in action on my:** [YouTube Demo Video](https://youtu.be/FjlkE5RW_3I)
 
  🧰 Hardware Requirements
 
